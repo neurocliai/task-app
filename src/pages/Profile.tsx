@@ -23,8 +23,9 @@ export function Profile() {
   }
 
   function onLogout() {
-    logout()
-    navigate('/')
+    // Leave protected routes first so clearing the session does not bounce to /auth
+    navigate('/', { replace: true })
+    window.setTimeout(() => logout(), 0)
   }
 
   const initials = user.name
