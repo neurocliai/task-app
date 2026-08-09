@@ -9,13 +9,24 @@ npm install
 npm run dev
 ```
 
-Open the local URL (default `http://localhost:5173`). On desktop it renders inside a phone shell; on mobile it fills the viewport.
+Starts both:
+
+- **API** — Express + SQLite on `http://localhost:3001`
+- **Web** — Vite on `http://localhost:5173` (proxies `/api` to the API)
+
+Open the local web URL. On desktop it renders inside a phone shell; on mobile it fills the viewport.
+
+## Database
+
+SQLite file lives at `data/lumen.db` (created automatically, gitignored).
+
+Tables: `users`, `sessions`, `tasks`
+
+Passwords are hashed with bcrypt. Auth uses bearer session tokens.
 
 ## Features
 
 - **Landing** — animated brand hero and CTAs
-- **Auth** — sign up / sign in (local device session)
-- **Tasks** — add, complete, filter, delete with priority
+- **Auth** — sign up / sign in against SQLite
+- **Tasks** — add, complete, filter, delete with priority (persisted in DB)
 - **Profile** — avatar, stats, edit name, sign out
-
-Data is stored in `localStorage` on this device (no backend).

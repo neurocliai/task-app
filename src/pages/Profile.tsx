@@ -15,11 +15,11 @@ export function Profile() {
 
   if (!user) return null
 
-  function onSave(e: FormEvent) {
+  async function onSave(e: FormEvent) {
     e.preventDefault()
     if (!name.trim()) return
-    updateProfile({ name: name.trim() })
-    setEditing(false)
+    const result = await updateProfile({ name: name.trim() })
+    if (result.ok) setEditing(false)
   }
 
   function onLogout() {

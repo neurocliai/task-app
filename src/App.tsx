@@ -8,7 +8,14 @@ import { Tasks } from './pages/Tasks'
 import type { ReactNode } from 'react'
 
 function Protected({ children }: { children: ReactNode }) {
-  const { isAuthenticated } = useAuth()
+  const { isAuthenticated, booting } = useAuth()
+  if (booting) {
+    return (
+      <main className="page no-nav" style={{ justifyContent: 'center', alignItems: 'center' }}>
+        <p className="lead">Loading your space…</p>
+      </main>
+    )
+  }
   if (!isAuthenticated) return <Navigate to="/auth?mode=login" replace />
   return children
 }
