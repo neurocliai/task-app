@@ -15,16 +15,17 @@ export function Profile() {
 
   if (!user) return null
 
-  function onSave(e: FormEvent) {
+  async function onSave(e: FormEvent) {
     e.preventDefault()
     if (!name.trim()) return
-    updateProfile({ name: name.trim() })
-    setEditing(false)
+    const result = await updateProfile({ name: name.trim() })
+    if (result.ok) setEditing(false)
   }
 
   function onLogout() {
-    logout()
-    navigate('/')
+    // Leave protected routes first so clearing the session does not bounce to /auth
+    navigate('/', { replace: true })
+    window.setTimeout(() => logout(), 0)
   }
 
   const initials = user.name

@@ -7,7 +7,7 @@ import type { AuthMode } from '../types'
 import './Auth.css'
 
 export function Auth() {
-  const { isAuthenticated, login, signup } = useAuth()
+  const { isAuthenticated, booting, login, signup } = useAuth()
   const navigate = useNavigate()
   const [params, setParams] = useSearchParams()
   const mode: AuthMode = params.get('mode') === 'login' ? 'login' : 'signup'
@@ -22,6 +22,14 @@ export function Auth() {
     () => (mode === 'signup' ? 'Create your space' : 'Welcome back'),
     [mode],
   )
+
+  if (booting) {
+    return (
+      <main className="page no-nav" style={{ justifyContent: 'center' }}>
+        <p className="lead">Loading…</p>
+      </main>
+    )
+  }
 
   if (isAuthenticated) return <Navigate to="/app" replace />
 
@@ -61,8 +69,8 @@ export function Auth() {
         <h1 className="h2">{title}</h1>
         <p className="lead auth-lead">
           {mode === 'signup'
-            ? 'Takes under a minute. Your tasks stay on this device.'
-            : 'Pick up where you left off — same device, same flow.'}
+            ? 'Takes under a minute. Your account and tasks save to the Lumen database.'
+            : 'Pick up where you left off — your tasks are stored securely.'}
         </p>
 
         <form className="auth-form" onSubmit={onSubmit}>
