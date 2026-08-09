@@ -1,0 +1,114 @@
+.profile-page {
+  gap: 18px;
+}
+
+.profile-header {
+  padding-top: 8px;
+  display: grid;
+  gap: 4px;
+}
+
+.profile-hero {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 14px;
+  align-items: center;
+  padding: 16px 4px;
+}
+
+.avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 22px;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.25rem;
+  letter-spacing: -0.03em;
+  box-shadow: 0 12px 28px rgba(21, 32, 43, 0.16);
+}
+
+.profile-id p {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.profile-name {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  letter-spacing: -0.03em;
+}
+
+.edit-form {
+  display: grid;
+  gap: 12px;
+}
+
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.stats-row > div {
+  text-align: center;
+  padding: 16px 8px;
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.75);
+}
+
+.stats-row strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  letter-spacing: -0.03em;
+}
+
+.stats-row span {
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-weight: 650;
+}
+
+.profile-list {
+  display: grid;
+  gap: 10px;
+}
+
+.profile-row {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 14px 4px;
+  border-top: 1px solid var(--line);
+}
+
+.profile-row p {
+  margin: 0;
+  font-weight: 700;
+}
+
+.profile-row span {
+  display: block;
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.profile-row svg {
+  color: var(--accent-deep);
+  margin-top: 2px;
+}
+
+.muted-row {
+  padding-left: 0;
+}
+
+.logout-btn {
+  margin-top: auto;
+}
