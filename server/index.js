@@ -4,7 +4,7 @@ import bcrypt from 'bcryptjs'
 import { db, mapTask, mapUser, uid } from './db.js'
 
 const app = express()
-const PORT = Number(process.env.PORT) || 3001
+const PORT = Number(process.env.PORT) || 3002
 const SESSION_DAYS = 30
 
 app.use(cors({ origin: true, credentials: true }))

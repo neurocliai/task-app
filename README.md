@@ -11,8 +11,8 @@ npm run dev
 
 Starts both:
 
-- **API** — Express + SQLite on `http://localhost:3001`
-- **Web** — Vite on `http://localhost:5173` (proxies `/api` to the API)
+- **API** — Express + SQLite on `http://localhost:3002`
+- **Web** — Vite on `http://localhost:5174` (proxies `/api` to the API)
 
 Open the local web URL. On desktop it renders inside a phone shell; on mobile it fills the viewport.
 
